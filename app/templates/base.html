@@ -9,6 +9,15 @@
   <body>
     <div>Microblog: <a href="/index">Home</a></div>
     <hr>
+    {% with message = get_flash_message() %}
+       {% if messages %}
+       <ul>
+         {% for message in messages %}
+          <li> {{ message }}</li>
+    {% endfor %}
+     </ul>
+     {% endif %}
+     {% endwith %}
     {% block content %}{% endblock %}
   </body>
 </html>
